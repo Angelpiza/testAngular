@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { url } from 'inspector';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -30,7 +29,9 @@ export class UserComponent implements OnInit {
   postUser(){
     let cosa = {"name":this.userNew, "lastName": this.email}
     return this.api.postTypeRequest('/failure',cosa).subscribe(res =>{
-      alert(res)
+     let _res = res;
+     
+      alert(res["name"]+ res["LastName"])
     })
   }
 
